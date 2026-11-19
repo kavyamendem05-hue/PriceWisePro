@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PriceWise - Compare shopping prices and discover better deals.">
+    <title>PriceWise | Compare. Save. Shop Smart.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <a href="#home" class="logo">Price<span>Wise</span>.</a>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#deals">Deals</a>
+        <a href="#how">How It Works</a>
+        <a href="#calculators">Calculators</a>
+        <a href="#alerts">Price Alerts</a>
+        <a href="#faq">FAQ</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero" id="home">
+        <p class="eyebrow">SMART SHOPPING STARTS HERE</p>
+        <h1>Compare Prices.<br><span>Save More.</span></h1>
+        <p>Find products, compare prices across shopping platforms and make smarter buying decisions.</p>
+
+        <div class="hero-search">
+            <input id="searchInput" type="search" placeholder="Search mobiles, clothing, beauty products...">
+            <button onclick="document.getElementById('deals').scrollIntoView({behavior:'smooth'})">Explore Deals</button>
+        </div>
+
+        <div class="platforms">
+            <span>Compare across</span>
+            <strong>Amazon</strong>
+            <strong>Flipkart</strong>
+            <strong>Myntra</strong>
+            <strong>Nykaa</strong>
+            <strong>Croma</strong>
+        </div>
+    </section>
+
+    <section class="section" id="deals">
+        <div class="section-heading">
+            <p class="eyebrow">EXPLORE OUR COLLECTION</p>
+            <h2>Today's Best Deals</h2>
+            <p>Discover products and compare their listed demonstration prices.</p>
+        </div>
+
+        <div class="filters">
+            <select id="categoryFilter">
+                <option value="All">All Categories</option>
+                <option value="Mobiles">Mobiles</option>
+                <option value="Laptops">Laptops</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Jewellery">Jewellery</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Beauty">Beauty</option>
+                <option value="Footwear">Footwear</option>
+                <option value="Bags">Bags</option>
+                <option value="Home Decor">Home Decor</option>
+            </select>
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+        <p class="demo-note">Prices shown are sample demonstration prices, not verified live retailer prices.</p>
+    </section>
+
+    <section class="section how-section" id="how">
+        <div class="section-heading">
+            <p class="eyebrow">SIMPLE AND SMART</p>
+            <h2>How PriceWise Works</h2>
+            <p>Four easy steps to smarter shopping.</p>
+        </div>
+
+        <div class="steps-grid">
+            <article class="step-card">
+                <div class="step-number">01</div>
+                <h3>Search Products</h3>
+                <p>Find the product you want to purchase.</p>
+            </article>
+            <article class="step-card">
+                <div class="step-number">02</div>
+                <h3>Compare Prices</h3>
+                <p>View sample prices from different shopping platforms.</p>
+            </article>
+            <article class="step-card">
+                <div class="step-number">03</div>
+                <h3>Find Better Deals</h3>
+                <p>Identify the lowest listed comparison price.</p>
+            </article>
+            <article class="step-card">
+                <div class="step-number">04</div>
+                <h3>Shop Smart</h3>
+                <p>Visit the shopping platform to check its product listing.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section" id="calculators">
+        <div class="section-heading">
+            <p class="eyebrow">SMART SHOPPING TOOLS</p>
+            <h2>Calculate Your Savings</h2>
+            <p>Use our calculators to understand discounts and savings.</p>
+        </div>
+
+        <div class="calculator-grid">
+            <article class="calculator-card">
+                <h3>Savings Calculator</h3>
+                <label for="originalPrice">Original Price (₹)</label>
+                <input type="number" id="originalPrice" min="0" placeholder="Enter original price">
+                <label for="bestPrice">Best Price (₹)</label>
+                <input type="number" id="bestPrice" min="0" placeholder="Enter best price">
+                <button onclick="calculateSavings()">Calculate Savings</button>
+                <p id="savingsResult" class="result"></p>
+            </article>
+
+            <article class="calculator-card">
+                <h3>Discount Calculator</h3>
+                <label for="markedPrice">Marked Price (₹)</label>
+                <input type="number" id="markedPrice" min="0" placeholder="Enter marked price">
+                <label for="discountPercent">Discount (%)</label>
+                <input type="number" id="discountPercent" min="0" max="100" placeholder="Enter discount">
+                <button onclick="calculateDiscount()">Calculate Discount</button>
+                <p id="discountResult" class="result"></p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section alert-section" id="alerts">
+        <div class="section-heading">
+            <p class="eyebrow">NEVER MISS A DEAL</p>
+            <h2>Price Drop Alerts</h2>
+            <p>Enter your details to try our price-alert demonstration.</p>
+        </div>
+
+        <form class="alert-form" id="alertForm">
+            <label for="alertProduct">Product Name</label>
+            <input type="text" id="alertProduct" placeholder="Enter product name" required>
+
+            <label for="targetPrice">Target Price (₹)</label>
+            <input type="number" id="targetPrice" min="1" placeholder="Enter your target price" required>
+
+            <label for="emailInput">Email Address</label>
+            <input type="email" id="emailInput" placeholder="Enter your email" required>
+
+            <button type="submit">Create Demo Alert</button>
+            <p id="alertMessage" class="result" aria-live="polite"></p>
+        </form>
+        <p class="demo-note">This is a frontend demonstration. It does not send real email notifications.</p>
+    </section>
+
+    <section class="section faq-section" id="faq">
+        <div class="section-heading">
+            <p class="eyebrow">GOT QUESTIONS?</p>
+            <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <details>
+            <summary>What is PriceWise?</summary>
+            <p>PriceWise is a product price comparison website that helps users explore products and compare prices.</p>
+        </details>
+
+        <details>
+            <summary>Is PriceWise free to use?</summary>
+            <p>Yes. This student project demonstration is free to explore.</p>
+        </details>
+
+        <details>
+            <summary>Are the displayed prices live?</summary>
+            <p>No. The current catalogue uses sample prices for demonstration. Live prices require authorized retailer integrations.</p>
+        </details>
+
+        <details>
+            <summary>How can I compare products?</summary>
+            <p>Search for a product and select the Compare Prices button to view its comparison table.</p>
+        </details>
+
+        <details>
+            <summary>Does PriceWise sell products?</summary>
+            <p>No. PriceWise is a comparison demonstration. Purchases would take place on the retailer's website.</p>
+        </details>
+    </section>
+
+    <section class="section contact-section" id="contact">
+        <div class="section-heading">
+            <p class="eyebrow">GET IN TOUCH</p>
+            <h2>About PriceWise</h2>
+            <p>Our goal is to make online shopping comparisons easier and more transparent.</p>
+        </div>
+        <p class="contact-text">PriceWise is an engineering mini-project demonstrating product catalogues, price comparisons and shopping tools.</p>
+    </section>
+</main>
+
+<div class="comparison-overlay" id="comparisonOverlay">
+    <div class="comparison-box">
+        <div class="comparison-header">
+            <h2 id="comparisonTitle">Compare Prices</h2>
+            <button class="close-btn" type="button" onclick="closeComparison()" aria-label="Close">&times;</button>
+        </div>
+        <div id="comparisonRows"></div>
+        <p class="demo-note">Sample prices only. Confirm actual prices with the retailer.</p>
+    </div>
+</div>
+
+<footer>
+    <a href="#home" class="logo footer-logo">Price<span>Wise</span>.</a>
+    <p>Compare. Save. Shop Smart.</p>
+    <p>© 2026 PriceWise. College Engineering Mini Project.</p>
+    <a href="#contact">About & Contact</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
